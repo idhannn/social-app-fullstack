@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { FaVideo } from "react-icons/fa";
 import {
   MdAddAPhoto,
@@ -10,10 +9,10 @@ const CreatePost = () => {
   return (
     <div className="rounded-lg p-2 lg:p-3 xl:p-6 bg-white w-full flex flex-col">
       <div className="flex gap-5 w-full border-b-2 pb-5">
-        <Image
+        <img
           src="https://i.pravatar.cc/300"
           className="w-[50px] h-[50px] rounded-full"
-          alt=""
+          alt="avatar"
         />
         <input
           type="text"

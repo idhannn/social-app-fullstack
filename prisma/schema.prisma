@@ -24,10 +24,10 @@ model Users {
 
 model Posts {
   id        Int      @id @default(autoincrement())
-  account   Json
+  userId    String
   content   Json
-  likes     Int
-  comments  Json
+  likes     Int?
+  comments  Json?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

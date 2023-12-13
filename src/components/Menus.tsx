@@ -21,7 +21,7 @@ const Menus = () => {
                 {menu.icon}
               </button>
               <p className="font-bold lg:text-[20px]">{menu.title}</p>
-            </div>
+            </div>{" "}
           </Link>
         ))}
       </ul>

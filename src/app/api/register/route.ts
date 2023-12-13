@@ -10,8 +10,8 @@ export async function POST(request: Request) {
 
     if (!username || !email || !hashPassword) {
       return NextResponse.json({
-        message: "Isi Input Terlebih Dahulu!",
-        status: 400,
+        message: "Please provide username, email and password",
+        status: false,
       });
     }
 
@@ -25,13 +25,13 @@ export async function POST(request: Request) {
     if (existingEmail || existingUsername) {
       return NextResponse.json({
         message: existingEmail
-          ? "Email Sudah Terdaftar"
-          : "Username Sudah Terdaftar",
-        status: 400,
+          ? "Email Already Exist"
+          : "Username Already Exist",
+        status: false,
       });
     }
 
-    const user = await prisma.users.create({
+    await prisma.users.create({
       data: {
         username,
         email,
@@ -39,10 +39,10 @@ export async function POST(request: Request) {
       },
     });
 
-    return NextResponse.json({ message: "Registrasi Berhasil", status: 201 });
+    return NextResponse.json({ message: "User Created", status: true });
   } catch (error) {
     if (error instanceof Error) {
-      return NextResponse.json({ message: error.message }, { status: 500 });
+      return NextResponse.json({ message: error.message, status: 500 });
     }
   }
 }

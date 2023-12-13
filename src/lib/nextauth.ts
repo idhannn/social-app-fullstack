@@ -2,6 +2,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { AuthOptions } from "next-auth";
 import prisma from "./prisma";
 import Credentials from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { compare } from "bcrypt";
 
 export const authOptions: AuthOptions = {
@@ -33,7 +34,7 @@ export const authOptions: AuthOptions = {
         });
 
         const passwordIsValid = await compare(
-          credentials?.password,
+          credentials.password,
           userInDb?.password as string
         );
 
@@ -49,5 +50,29 @@ export const authOptions: AuthOptions = {
         };
       },
     }),
+    GoogleProvider({
+      clientId: process.env.NEXTAUTH_CLIENT_ID_GOOGLE as string,
+      clientSecret: process.env.NEXTAUTH_SECRET_KEY_GOOGLE as string,
+    }),
   ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.name = user.name;
+        token.email = user.email;
+        token.picture = user.image;
+      }
+      return token;
+    },
+    async session({ session, token }) {
+      console.log("IN SESSION", token, session);
+      return {
+        ...session,
+        user: {
+          ...session.user,
+        },
+      };
+    },
+  },
 };

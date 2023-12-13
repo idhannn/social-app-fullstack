@@ -1,7 +1,6 @@
 "use client";
 import { update } from "@/lib/alertSplice";
 import { useAppDispatch } from "@/lib/hooks";
-import Image from "next/image";
 const RecomendationFreinds = () => {
   const dispatch = useAppDispatch();
 
@@ -29,7 +28,7 @@ const RecomendationFreinds = () => {
               <button
                 className={`${menu.bg} w-[80px] h-[80px] lg:w-[40px] lg:h-[40px] overflow-hidden rounded-full text-[20px] ${menu.color}`}
               >
-                <Image src={menu.image} alt="" className="w-full h-full" />
+                <img src={menu.image} alt="avatar" className="w-full h-full" />
               </button>
               <p className="font-bold text-sm lg:text-[20px]">{menu.title}</p>
               <p
