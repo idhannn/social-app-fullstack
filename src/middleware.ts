@@ -5,4 +5,10 @@ export function mainMiddleware(req: NextRequest) {
   return NextResponse.next();
 }
 
-export default withAuth(mainMiddleware, ["/user/profile"]);
+export default withAuth(mainMiddleware, [
+  "/",
+  "/profile",
+  "/inbox",
+  "/freinds",
+  "/favorites",
+]);

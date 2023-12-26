@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import alertSplice from "./alertSplice";
+import modalReducer from "./modalSlice";
+import dataReducer from "./dataSLice";
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-      alert: alertSplice,
+      modal: modalReducer,
+      data: dataReducer,
     },
   });
 };

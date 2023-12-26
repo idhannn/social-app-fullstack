@@ -1,20 +1,11 @@
-"use client";
-
 import Link from "next/link";
 import { FaFacebookMessenger } from "react-icons/fa";
 import { IoNotifications, IoSearch } from "react-icons/io5";
 import Avatar from "./Avatar";
-import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const pathname = usePathname();
-  const allowTOShow = ["/"];
-  if (!allowTOShow.includes(pathname)) {
-    return null;
-  }
-
   return (
-    <nav className="p-3 py-4 lg:p-5 z-50 bg-white fixed top-0 ledt-0 w-full">
+    <nav className="p-3 py-4 lg:p-5 bg-white fixed z-30 top-0 ledt-0 w-full">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
           <div>

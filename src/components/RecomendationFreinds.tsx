@@ -1,12 +1,6 @@
 "use client";
-import { update } from "@/lib/alertSplice";
-import { useAppDispatch } from "@/lib/hooks";
 const RecomendationFreinds = () => {
-  const dispatch = useAppDispatch();
-
-  const handleFollow = (name: string) => {
-    dispatch(update({ toast: true, name: name }));
-  };
+  const handleFollow = (name: string) => {};
 
   return (
     <div>

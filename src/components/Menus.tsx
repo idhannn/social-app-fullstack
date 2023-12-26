@@ -7,7 +7,7 @@ import { signIn } from "next-auth/react";
 
 const Menus = () => {
   return (
-    <div className="fixed z-50 bottom-0 w-full lg:w-[250px] left-0 xl:left-6 lg:top-24 mt-3">
+    <div className="fixed z-30 bottom-0 w-full lg:w-[250px] left-0 xl:left-6 lg:top-24 mt-3">
       <ul className="flex lg:flex-col max-lg:pt-2 max-lg:grid max-lg:grid-cols-4 max-lg:bg-white">
         {MenuLists.map((menu, index) => (
           <Link href={menu.link} key={index}>

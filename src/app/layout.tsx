@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
 import StoreProvider from "./StoreProvider";
 import { QueryProviders } from "@/lib/queryProviders";
 
@@ -27,10 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <QueryProviders>
         <StoreProvider>
-          <body className={inter.className}>
-            <Navbar />
-            {children}
-          </body>
+          <body className={inter.className}>{children}</body>
         </StoreProvider>
       </QueryProviders>
     </html>

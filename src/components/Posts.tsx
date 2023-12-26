@@ -1,11 +1,9 @@
 "use client";
-import { useAppSelector } from "@/lib/hooks";
+
 import PostsProperty from "./PostsProperty";
 import { SlOptionsVertical } from "react-icons/sl";
 
 const Posts = () => {
-  const { like, toast, name } = useAppSelector((state) => state.alert);
-
   return (
     <div className="rounded-lg mt-5 p-2 lg:p-3 xl:p-6 bg-white w-full flex flex-col">
       <div className="flex justify-between items-center">
@@ -16,7 +14,7 @@ const Posts = () => {
             className="w-[40px] h-[40px]"
           />
           <div>
-            <h2 className="font-bold text-lg">Name {name}</h2>
+            <h2 className="font-bold text-lg">Name</h2>
             <p>Time</p>
           </div>
         </div>

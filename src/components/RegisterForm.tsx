@@ -90,7 +90,7 @@ const RegisterForm = () => {
           type="submit"
           className="bg-rose-500 mt-5 text-white py-3 px-2 rounded-full hover:bg-rose-400 text-lf font-semibold duration-300"
         >
-          Sign In
+          Sign Up
         </button>
         <p className="text-center my-5">Or</p>
         <button className="border py-4 px-3 rounded-full flex gap-2 justify-center hover:shadow items-center">

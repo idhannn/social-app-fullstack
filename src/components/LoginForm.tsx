@@ -1,4 +1,5 @@
 "use client";
+
 import Input from "./InputForm";
 import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
@@ -6,13 +7,16 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import Loading from "./Loading";
 
 const LoginForm = () => {
   const { handleSubmit, register } = useForm();
   const { push } = useRouter();
   const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmitLogin = async (data: any) => {
+    setIsLoading(true);
     const res = await signIn("credentials", {
       email: data.email,
       password: data.password,
@@ -51,7 +55,13 @@ const LoginForm = () => {
           Sign In
         </button>
         <p className="text-center my-5">Or</p>
-        <button className="border py-4 px-3 rounded-full flex gap-2 justify-center hover:shadow items-center">
+        <button
+          type="button"
+          onClick={() =>
+            signIn("google", { callbackUrl: "/", redirect: false })
+          }
+          className="border py-4 px-3 rounded-full flex gap-2 justify-center hover:shadow items-center"
+        >
           <Image src={"/google.png"} width={20} height={20} alt="google" />
           <p>Sign In With Google</p>
         </button>
@@ -63,6 +73,7 @@ const LoginForm = () => {
           Here
         </p>
       </div>
+      {isLoading && <Loading />}
     </form>
   );
 };
