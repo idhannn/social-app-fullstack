@@ -8,7 +8,7 @@ export function mainMiddleware(req: NextRequest) {
 export default withAuth(mainMiddleware, [
   "/",
   "/profile",
-  "/inbox",
+  "/chats",
   "/freinds",
   "/favorites",
 ]);
