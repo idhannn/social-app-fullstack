@@ -11,4 +11,5 @@ export default withAuth(mainMiddleware, [
   "/chats",
   "/freinds",
   "/favorites",
+  "/posts",
 ]);
